@@ -4,6 +4,8 @@ const path = require('path');
 const compression = require('compression');
 const port = process.env.PORT || 3000;
 const app = express();
+const morgan = require('morgan');
+app.use(morgan());
 app.use(compression());
 app.use('/restaurants/:rid', express.static(path.resolve(__dirname, '../public')));
 
@@ -22,7 +24,6 @@ app.get('/api/restaurants/:rid/availability' , (req, res) => {
  // GET restaurant info
  app.get('/api/restaurants/:rid' , (req, res) => {
   let id = req.params.rid.slice(1);
-  
   res.redirect(`http://54.215.234.24:3003/api/restaurants/${id}`);
  });
 
