@@ -22,6 +22,7 @@ app.get('/api/restaurants/:rid/availability' , (req, res) => {
  // GET restaurant info
  app.get('/api/restaurants/:rid' , (req, res) => {
   let id = req.params.id.slice(1);
+  console.log(id);
   res.redirect(`http://54.215.234.24:3003/api/restaurants/${id}`);
  });
 
