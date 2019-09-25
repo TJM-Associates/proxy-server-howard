@@ -5,7 +5,7 @@ const compression = require('compression');
 const port = process.env.PORT || 3000;
 const app = express();
 const morgan = require('morgan');
-app.use(morgan());
+app.use(morgan('tiny'));
 app.use(compression());
 app.use('/restaurants/:rid', express.static(path.resolve(__dirname, '../public')));
 
