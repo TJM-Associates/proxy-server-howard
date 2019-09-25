@@ -14,6 +14,14 @@ app.get('/api/restaurants/:rid/images', (req, res) => {
   res.redirect(`http://54.193.42.82:3002/api/restaurants/${req.params.rid}/images`)
 })
 
+// GET reservation availability
+app.get('/api/restaurants/:rid/availability' , (req, res) => {
+  res.redirect(`http://${host}/api/restaurants/${req.params.rid}/availability?date=${req.query.date}&time=${req.query.time}&seats=${req.query.seats}`);
+ });
+ // GET restaurant info
+ app.get('/api/restaurants/:rid' , (req, res) => {
+  res.redirect(`http://${host}/api/restaurants/${req.params.rid}`);
+ });
 
 app.listen(port, () => {
   console.log(`App is listening on port ${port}`);
