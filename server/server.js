@@ -16,11 +16,13 @@ app.get('/api/restaurants/:rid/images', (req, res) => {
 
 // GET reservation availability
 app.get('/api/restaurants/:rid/availability' , (req, res) => {
-  res.redirect(`http://54.215.234.24:3003/api/restaurants/${req.params.rid}/availability?date=${req.query.date}&time=${req.query.time}&seats=${req.query.seats}`);
+  let id = req.params.id.slice(1);
+  res.redirect(`http://54.215.234.24:3003/api/restaurants/${id}/availability?date=${req.query.date}&time=${req.query.time}&seats=${req.query.seats}`);
  });
  // GET restaurant info
  app.get('/api/restaurants/:rid' , (req, res) => {
-  res.redirect(`http://54.215.234.24:3003/api/restaurants/${req.params.rid}`);
+  let id = req.params.id.slice(1);
+  res.redirect(`http://54.215.234.24:3003/api/restaurants/${id}`);
  });
 
 app.listen(port, () => {
